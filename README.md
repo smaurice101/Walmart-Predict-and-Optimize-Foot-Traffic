@@ -33,7 +33,7 @@ hpdehost="http://127.0.0.1"
 hpdeport=8001
 
 # Set Global variable for Viper confifuration file - change the folder path for your computer
-viperconfigfile="C:/maads/golang/go/bin/viper.env"
+viperconfigfile="C:/viperdemo/viper.env"
 
 #############################################################################################################
 #                                      STORE VIPER TOKEN
@@ -41,7 +41,7 @@ viperconfigfile="C:/maads/golang/go/bin/viper.env"
 # to your location of admin.tok
 def getparams():
         
-     with open("c:/viper/admin.tok", "r") as f:
+     with open("c:/viperdemo/admin.tok", "r") as f:
         VIPERTOKEN=f.read()
   
      return VIPERTOKEN
