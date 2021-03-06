@@ -272,7 +272,7 @@ def performPredictionOptimization():
       stretchbounds=20
       # we are going to use MIN and MAX for the lower and upper bounds on the constraints
       constrainttype=1
-      # We are going to see if there are 'better' optimal values around an epsilon distance (10%)
+      # We are going to see if there are 'better' optimal values around an epsilon distance (20%)
       # from the local optimal values found
       epsilon=20
       # network timeout in seconds between VIPER and HPDE
