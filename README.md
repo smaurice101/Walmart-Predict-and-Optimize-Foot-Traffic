@@ -250,7 +250,8 @@ def performPredictionOptimization():
       result=maadstml.vipersubscribeconsumer(VIPERTOKEN,VIPERHOST,VIPERPORT,producetotopic,companyname,
                                           myname,myemail,mylocation,description,
                                           brokerhost,brokerport,groupid,microserviceid)
-      print("****CONSUMER ID FOR TOPIC=otics-tmlbook-walmartretail-foottrafic-optimization-results-output:*****", result)
+ 
+     print("****CONSUMER ID FOR TOPIC=otics-tmlbook-walmartretail-foottrafic-optimization-results-output: (use this consumer id in the visualization)*****", result)
 
      ###########################################################################################################
       #                                  CREATE A CONSUMER GROUP
@@ -295,8 +296,8 @@ def performPredictionOptimization():
                                       offset,enabletls,delay,hpdeport,usedeploy,ismin,
                                       constraints,stretchbounds,constrainttype,epsilon,
                                       brokerhost,brokerport,timeout,microserviceid)
-      print(result7)
 
+      print(result7)
 ##########################################################################
 
 # Change this to any number
