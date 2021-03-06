@@ -275,7 +275,7 @@ def performPredictionOptimization():
       delay=10000
       offset=-1
       # we are doing minimization if ismin=1, otherwise we are maximizing the objective function
-      ismin=1
+      ismin=0
       # choosing constraints='best' will force HPDE to choose the constraints for you
       constraints='best'
       # We are going to expand the lower and upper bounds on the constraints by 20%
