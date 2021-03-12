@@ -4,6 +4,34 @@
 # Toronto, Ontario Canada
 # For help email: support@otics.ca 
 
+#######################################################################################################################################
+
+# This file will predict and optimize Walmart Foot Traffic.  Before using this code you MUST have:
+# 1) Downloaded and installed MAADS-VIPER from: https://github.com/smaurice101/transactionalmachinelearning
+
+# 2) You have:
+# a) VIPER listening for a connection on port IP: http://127.0.01 and PORT: 8000 (you can specify different IP and PORT
+#    just change the  VIPERHOST="http://127.0.0.1" and VIPERPORT=8000)
+# b) HPDE listening for a connection on port IP: http://127.0.01 and PORT: 8001 (you can specify different IP and PORT
+#    just change the  hpdehost="http://127.0.0.1" and hpdeport=8001)
+
+# 3) You have created a Kafka cluster in Confluent Cloud (https://confluent.cloud/)
+
+# 4) You have updated the VIPER.ENV file in the following fields:
+# a) KAFKA_CONNECT_BOOTSTRAP_SERVERS=[Enter the bootstrap server - this is the Kafka broker(s) - separate multiple brokers by a comma]
+# b) KAFKA_ROOT=kafka
+# c) SSL_CLIENT_CERT_FILE=[Enter the full path to client.cer.pem]
+# d) SSL_CLIENT_KEY_FILE=[Enter the full path to client.key.pem]
+# e) SSL_SERVER_CERT_FILE=[Enter the full path to server.cer.pem]
+
+# f) CLOUD_USERNAME=[Enter the Cloud Username- this is the KEY]
+# g) CLOUD_PASSWORD=[Enter the Cloud Password - this is the secret]
+
+# NOTE: IF YOU GET STUCK WATCH THE YOUTUBE VIDEO: https://www.youtube.com/watch?v=b1fuIeC7d-8
+# Or email support@otics.ca
+#########################################################################################################################################
+
+
 # Import the core libraries
 import maadstml
 
@@ -23,7 +51,7 @@ hpdehost="http://127.0.0.1"
 hpdeport=8001
 
 # Set Global variable for Viper confifuration file - change the folder path for your computer
-viperconfigfile="C:/maads/golang/go/bin/viper.env"
+viperconfigfile="C:/viperdemo/viper.env"
 
 #############################################################################################################
 #                                      STORE VIPER TOKEN
@@ -31,7 +59,7 @@ viperconfigfile="C:/maads/golang/go/bin/viper.env"
 # to your location of admin.tok
 def getparams():
         
-     with open("c:/viper/admin.tok", "r") as f:
+     with open("c:/viperdemo/admin.tok", "r") as f:
         VIPERTOKEN=f.read()
   
      return VIPERTOKEN
@@ -265,14 +293,14 @@ def performPredictionOptimization():
       delay=10000
       offset=-1
       # we are doing minimization if ismin=1, otherwise we are maximizing the objective function
-      ismin=0
+      ismin=1
       # choosing constraints='best' will force HPDE to choose the constraints for you
       constraints='best'
       # We are going to expand the lower and upper bounds on the constraints by 20%
-      stretchbounds=20
+      stretchbounds=50
       # we are going to use MIN and MAX for the lower and upper bounds on the constraints
       constrainttype=1
-      # We are going to see if there are 'better' optimal values around an epsilon distance (20%)
+      # We are going to see if there are 'better' optimal values around an epsilon distance (10%)
       # from the local optimal values found
       epsilon=20
       # network timeout in seconds between VIPER and HPDE
@@ -298,3 +326,4 @@ for j in range(numpredictions):
   except Exception as e:
     print(e)   
     continue   
+
