@@ -214,10 +214,12 @@ def performPredictionOptimization():
       usedeploy=1
       # Network timeout
       networktimeout=120
+      # maxrows - rollback independent variable streams
+      maxrows=0  
       #Start predicting with new data streams
       result6=maadstml.viperhpdepredict(VIPERTOKEN,VIPERHOST,VIPERPORT,consumefrom,producetotopic,
                                      companyname,consumeridtraininedparams,
-                                     produceridhyperprediction, hpdehost,inputdata,mainalgokey,
+                                     produceridhyperprediction, hpdehost,inputdata,maxrows,mainalgokey,
                                      -1,offset,enabletls,delay,hpdeport,
                                      brokerhost,brokerport,networktimeout,usedeploy,microserviceid)
 
